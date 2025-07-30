@@ -1,0 +1,126 @@
+body{
+    background-color: rgb(27, 27, 27);
+    color: white !important;
+    background-image: url('../resources/Image4.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+main{
+    width:100%;
+    height: 50%;
+}
+
+.card{
+    margin: 0 auto;
+    margin-top: 10%;
+    width: 350px !important;
+    border: 2px solid #242424; 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    margin-bottom: 350px;
+  
+}
+
+#heading{
+    margin-bottom: 30px !important;
+    
+}
+
+.card-body{
+    background-color: rgb(255, 255, 255);
+    padding: 25px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+   
+
+}
+
+.form-control{
+    border:none !important;
+    border-bottom: 1px solid black !important;
+    background: none;
+    width:250px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.form-control,
+.form-control:focus {
+    border: none;                 
+    border-bottom: 1px solid black; 
+    outline: none;                
+    background: none;   
+    outline: none;
+    box-shadow: none;         
+}
+
+button{
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 0px;
+}
+
+.btn.btn-primary{
+  
+    background: none;
+    width:250px;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid black;  
+    border-style: solid;
+    color: black;
+    margin-top: 25px;
+}
+
+
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    color: white;
+    background: #141414;
+    padding: 0 20px;
+}
+
+.team-logo{
+    height: auto;
+    width: auto;
+}
+
+.team-logo img{
+    height: auto;
+    width: 10vw;
+}
+
+.footer-panel{
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+}
+
+.footer-panel a{
+    color: #646464;
+    text-decoration: none;
+    transition:  ease-in-out 0.2s;
+}
+
+.footer-panel a:hover{
+    color: #ffffff;
+}
+
+.footer-panel label{
+    color: #646464;
+    transition:  ease-in-out 0.2s;
+}
+
+.footer-panel label:hover{
+    color: #ffffff;
+}
