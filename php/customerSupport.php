@@ -40,6 +40,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 //     date DATE NOT NULL
 // );
 
+//Wamp 2/3 fix = run/ services.msc find mysql80 and stop it. Then find the 3 wamp ones. run the one that isnt running. The reason the sql one wamp doesnt run is cause
+// another server is running on my pc.
 
 
 

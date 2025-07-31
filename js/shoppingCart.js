@@ -14,7 +14,7 @@ cartButtons.forEach(button => {
         let price = button.getAttribute("data-price");
         price = parseFloat(price);
         
-        console.log(price)
+        console.log(price + " price captured")
         if (src && price) {
             
             let data = {
@@ -23,7 +23,7 @@ cartButtons.forEach(button => {
             }
 
             //when using fetch, php must send a response back, then exit() after so u can use ur other code below that.
-            fetch("./php/cart.php", {
+            fetch("../php/cart.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data) 

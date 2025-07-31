@@ -84,7 +84,7 @@ if(isset($_SESSION["email"])){
             $src = $row['src'];
             
             // concatenate . because now resources is one folder above
-            $src = "." . $src;
+            // $src = ".." . $src;
         
             // echo "Price: " . $price . "<br>";
             // echo "Image Source: " . $src . "<br><br>";
