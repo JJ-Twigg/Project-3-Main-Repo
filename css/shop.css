@@ -9,6 +9,57 @@
 body{
     font-family: 'Spartan', sans-serif;
 }
+.navbar {
+  height: 80px;          /* height change */
+  background-color: #000 !important;
+  padding: 0 !important;
+}
+
+.navbar-brand img {
+  max-height: 100px;   
+  width: auto;
+}
+
+.navbar .nav-link {
+  padding: 0 10px !important;  
+  line-height: 50px;           
+}
+
+.navbar-nav {
+  margin-left: auto;
+  margin-right: auto;         
+}
+
+
+
+/* .mb-lg-0{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+} */
+
+.btn-sign-up{
+    color: #141414;
+    background: #ffffff;
+    border-radius: 25px;
+    width: 100px;
+    transition: ease-in-out 0.2s;
+}
+
+.btn-sign-up:hover{
+    color: #ffffff;
+    background: transparent;
+}
+
+#cartCounter {
+    color: white;
+    font-size: 1.5rem; /* Adjust size as needed */
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+
+
 
 h1{
     font-size: 2.5rem;
@@ -136,7 +187,7 @@ button{
 
 
 /* Footer */
-
+/* 
 footer{
     background-color: #1d1d1d;
 }
@@ -169,4 +220,65 @@ footer .fa-solid{
     line-height: 28px;
     border-radius: 50%;
     transition: 0 5px;
+} */
+
+
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    height: auto;
+    width: 100%;
+    color: white;
+    background: #000000;
+    padding: 20px;
+}
+
+
+.team-logo{
+    height: auto;
+    width: auto;
+}
+
+.team-logo img{
+    height: auto;
+    width: 10vw;
+}
+
+
+.team-logo img{
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.footer-panel{
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+}
+
+.footer-panel a{
+    color: #646464;
+    text-decoration: none;
+    transition:  ease-in-out 0.2s;
+}
+
+.footer-panel a:hover{
+    color: #ffffff;
+}
+
+.footer-panel label{
+    color: #646464;
+    transition:  ease-in-out 0.2s;
+}
+
+.footer-panel label:hover{
+    color: #ffffff;
+}
+
+.footer-panel h5 {
+    color: white;
+    margin-bottom: 10px; /* optional spacing */
 }

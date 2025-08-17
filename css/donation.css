@@ -1,7 +1,7 @@
 body{
     background-color: rgb(0, 0, 0);
     color: rgb(0, 0, 0) !important;
-    background-image: url('../resources/5026662.jpg');
+    background-image: url('../resources/s-o-c-i-a-l-c-u-t-Ts5lfuC7pDw-unsplash.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -12,6 +12,77 @@ main{
     height: 50%;
 }
 
+
+.navbar {
+  height: 80px;          /* height change */
+  background-color: #000 !important;
+  padding: 0 !important;
+}
+
+.navbar-brand img {
+  max-height: 100px;   
+  width: auto;
+}
+
+.navbar .nav-link {
+  padding: 0 10px !important;  
+  line-height: 50px;           
+}
+
+.navbar-nav {
+  margin-left: auto;
+  margin-right: auto;         
+}
+
+
+
+/* .mb-lg-0{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+} */
+
+.btn-sign-up{
+    color: #141414;
+    background: #ffffff;
+    border-radius: 25px;
+    width: 100px;
+    transition: ease-in-out 0.2s;
+}
+
+.btn-sign-up:hover{
+    color: #ffffff;
+    background: transparent;
+}
+
+#cartCounter {
+    color: white;
+    font-size: 1.5rem; /* Adjust size as needed */
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+
+
+.btn-sign-up {
+    color: #141414;
+    background: #ffffff;
+    border-radius: 25px;
+    width: 100px;
+    transition: ease-in-out 0.2s;
+}
+
+.btn-sign-up:hover {
+    color: #ffffff;
+    background: transparent;
+}
+
+#cartCounter {
+    color: white;
+    font-size: 1.5rem; /* Adjust size as needed */
+    font-weight: bold;
+    margin-left: 5px;
+}
 .card{
     margin: 0 auto;
     margin-top: 7%;
@@ -20,6 +91,8 @@ main{
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     border-radius: 20px;
     backdrop-filter: blur(10px);
+    margin-bottom: 500px !important;
+    margin-top: 500px !important;
  
 }
 
@@ -35,6 +108,8 @@ main{
     color: rgb(0, 0, 0);
     border-radius: 10px;
     backdrop-filter: blur(10px);
+    padding-bottom: 500px;
+     margin-top: 500px !important;
     
 }
 
@@ -73,4 +148,85 @@ button{
     border-style: solid;
     color: black;
     margin-top: 30px;
+}
+
+
+.footer {
+  background: #000;
+  padding: 40px 20px;
+  margin-top: 50px;
+}
+
+.footer {
+
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1440px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  width: 160px;
+}
+
+.footer-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: white;
+}
+
+.social-links,
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.social-link,
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.social-link:hover {
+  color: #f0f0f0;
+}
+
+.social-icon,
+.contact-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.address-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.address-icon {
+  width: 26px;
+  height: 40px;
+}
+
+.address-text {
+  font-size: 18px;
+  font-weight: 700;
 }
