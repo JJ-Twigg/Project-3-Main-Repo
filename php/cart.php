@@ -30,6 +30,24 @@ if (!$email) {
 $src = $item["src"];
 $price = $item["price"];
 
+//this block checks if the image src is already there
+$checkSql = "SELECT id FROM cart WHERE email = ? AND src = ?";
+$checkStmt = $conn->prepare($checkSql);
+$checkStmt->bind_param("ss", $email, $src);
+$checkStmt->execute();
+$checkResult = $checkStmt->get_result();
+
+if ($checkResult->num_rows > 0) {
+    // Item already in cart
+    echo json_encode([
+        'status' => 'error',
+        'message' => 'Item already in cart'
+    ]);
+    exit();
+}
+
+//end block
+
 // Insert into database
 $sql = "INSERT INTO cart(email, src, price) VALUES (?, ?, ?)";
 $stmt = $conn->prepare($sql);

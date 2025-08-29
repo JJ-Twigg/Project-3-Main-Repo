@@ -101,29 +101,35 @@
               $src = $row['src'];
 
               echo "
-                <div class='row align-items-center py-3 border-bottom'>
-                    <div class='col-6 d-flex align-items-center'>
-                        <img src='$src' class='me-3' alt='Product' style='width:60px; height:60px;'>
-                        <div>Product #$id</div>
-                    </div>
-                    <div class='col-2'>R$price</div>
-                    <div class='col-2 d-flex align-items-center'>
-                        <button class='btn btn-sm btn-outline-secondary me-2 quantity-decrease' data-id='$id'>-</button>
-                        <span class='quantity'>1</span>
-                        <button class='btn btn-sm btn-outline-secondary ms-2 quantity-increase' data-id='$id'>+</button>
-                    </div>
-                    <div class='col-2 text-end'>
-                        R$price
-                        <button class='deleteButton btn btn-danger btn-sm ms-2' data-id='$id'>
-                            <i class='fas fa-times-circle'></i>
-                        </button>
-                    </div>
+            <div class='row align-items-center py-3 border-bottom cart-item' 
+                 data-id='$id' data-price='$price'> <!-- FIXED -->
+
+                <div class='col-6 d-flex align-items-center'>
+                    <img src='$src' class='me-3' alt='Product' style='width:60px; height:60px;'>
+                    <div>Product #$id</div>
                 </div>
-                ";
+
+                <div class='col-2'>R$price</div>
+
+                <div class='col-2 d-flex align-items-center'>
+                    <button class='btn btn-sm btn-outline-secondary me-2 quantity-decrease' data-id='$id'>-</button>
+                    <span class='quantity'>1</span>
+                    <button class='btn btn-sm btn-outline-secondary ms-2 quantity-increase' data-id='$id'>+</button>
+                </div>
+
+                <div class='col-2 text-end item-total'> <!-- FIXED -->
+                    R$price
+                    <button class='deleteButton btn btn-danger btn-sm ms-2' data-id='$id'>
+                        <i class='fas fa-times-circle'></i>
+                    </button>
+                </div>
+            </div>
+        ";
             }
           } else {
             echo "<div class='text-center py-3'>Your cart is empty</div>";
           }
+
 
           $stmt->close();
         } else {
@@ -132,23 +138,7 @@
         ?>
       </div>
 
-      <script>
-        document.querySelectorAll('.quantity-increase').forEach(btn => {
-          btn.addEventListener('click', () => {
-            const qtyElem = btn.previousElementSibling;
-            qtyElem.textContent = parseInt(qtyElem.textContent) + 1;
-          });
-        });
-
-        document.querySelectorAll('.quantity-decrease').forEach(btn => {
-          btn.addEventListener('click', () => {
-            const qtyElem = btn.nextElementSibling;
-            let qty = parseInt(qtyElem.textContent);
-            if (qty > 1) qty--;
-            qtyElem.textContent = qty;
-          });
-        });
-      </script>
+  
 
 
       <!-- RIGHT: Summary -->
@@ -164,18 +154,18 @@
           </div> -->
 
           <div class="mb-2 d-flex justify-content-between">
-            <span>Subtotal:</span><span>R2300.00</span>
+            <span>Subtotal:</span><span>R0</span>
           </div>
           <div class="mb-2 d-flex justify-content-between">
-            <span>Shipping:</span><span>R55.00</span>
+            <span>Shipping:</span><span>R0</span>
           </div>
           <div class="mb-4 d-flex justify-content-between">
-            <span>Tax:</span><span>R15.00</span>
+            <span>Tax:</span><span>R0</span>
           </div>
 
           <div class="divider"></div>
           <div class="d-flex justify-content-between fs-5 fw-bold mb-4">
-            <span>Estimated Total:</span><span>R2370.00</span>
+            <span>Estimated Total:</span><span>R0</span>
           </div>
 
           <button class="btn btn-dark checkout-btn">CHECKOUT</button>
@@ -185,10 +175,92 @@
     </div>
   </div>
 
+
+
   <!-- Bootstrap Bundle JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Your Custom JS -->
   <script src="script.js"></script>
+
+      <script>
+        // document.querySelectorAll('.quantity-increase').forEach(btn => {
+        //   btn.addEventListener('click', () => {
+        //     const qtyElem = btn.previousElementSibling;
+        //     qtyElem.textContent = parseInt(qtyElem.textContent) + 1;
+        //   });
+        // });
+
+        // document.querySelectorAll('.quantity-decrease').forEach(btn => {
+        //   btn.addEventListener('click', () => {
+        //     const qtyElem = btn.nextElementSibling;
+        //     let qty = parseInt(qtyElem.textContent);
+        //     if (qty > 1) qty--;
+        //     qtyElem.textContent = qty;
+        //   });
+        // });
+
+        function updateTotals() {
+          let subtotal = 0;
+
+          // loop through each cart item
+          document.querySelectorAll(".cart-item").forEach(item => {
+            const price = parseFloat(item.dataset.price); // unit price
+            const qty = parseInt(item.querySelector(".quantity").textContent); // current qty
+            const total = price * qty;
+
+            // update row total
+            const itemTotalElem = item.querySelector(".item-total");
+            itemTotalElem.innerHTML = `R${total} 
+      <button class='deleteButton btn btn-danger btn-sm ms-2' data-id='${item.dataset.id}'>
+        <i class='fas fa-times-circle'></i>
+      </button>`;
+
+            subtotal += total;
+          });
+
+          // update summary
+          const spans = document.querySelector(".summary-box").querySelectorAll("span");
+          spans[1].textContent = "R" + subtotal; // Subtotal
+          spans[3].textContent = "R0"; // Shipping (static for now)
+          spans[5].textContent = "R0"; // Tax (static for now)
+          spans[7].textContent = "R" + subtotal; // Estimated total
+        }
+
+        // increase qty
+        document.querySelectorAll('.quantity-increase').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const qtyElem = btn.previousElementSibling;
+            qtyElem.textContent = parseInt(qtyElem.textContent) + 1;
+            updateTotals();
+          });
+        });
+
+        // decrease qty
+        document.querySelectorAll('.quantity-decrease').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const qtyElem = btn.nextElementSibling;
+            let qty = parseInt(qtyElem.textContent);
+            if (qty > 1) qty--;
+            qtyElem.textContent = qty;
+            updateTotals();
+          });
+        });
+
+        // delete item
+        document.addEventListener('click', e => {
+          if (e.target.closest('.deleteButton')) {
+            const row = e.target.closest('.cart-item');
+            row.remove();
+            updateTotals();
+          }
+        });
+
+        // initial calculation
+        updateTotals();
+        
+      </script>
+
+
 </body>
 
 </html>

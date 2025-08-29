@@ -99,7 +99,7 @@ let logOut=()=>{
     let logOutButton = document.getElementById("logOutButton");
     
     if(logOutButton){
-        fetch("./php/logOut.php")
+        fetch("../php/logOut.php")
         .then(res=>res.text())
         .then(data=>{
             if (data === "logged_out") {
